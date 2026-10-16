@@ -170,6 +170,34 @@ const fetchGCode = (options) => new Promise((resolve, reject) => {
     });
 });
 
+//
+// Guided guitar jobs
+//
+const getGuitarCatalog = () => new Promise((resolve, reject) => {
+  authrequest
+    .get('/api/guitar/catalog')
+    .end((err, res) => {
+      if (err) {
+        reject(res);
+      } else {
+        resolve(res);
+      }
+    });
+});
+
+const getGuitarOperation = (selection) => new Promise((resolve, reject) => {
+  authrequest
+    .post('/api/guitar/operation')
+    .send(selection)
+    .end((err, res) => {
+      if (err) {
+        reject(res);
+      } else {
+        resolve(res);
+      }
+    });
+});
+
 const downloadGCode = (options) => {
   const { port = '' } = { ...options };
 
@@ -708,6 +736,8 @@ export default {
   loadGCode,
   fetchGCode,
   downloadGCode,
+  getGuitarCatalog,
+  getGuitarOperation,
 
   // Authentication
   signin,

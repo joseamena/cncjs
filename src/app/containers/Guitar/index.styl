@@ -1,0 +1,631 @@
+$ink = #f4f1ea;
+$muted = #9ca8aa;
+$surface = #172023;
+$surface-raised = #202c30;
+$line = rgba(255, 255, 255, .1);
+$accent = #ef9b50;
+$teal = #52c4b8;
+$danger = #e65f58;
+
+.app
+    background #0e1416;
+    color $ink;
+    min-height 100vh;
+    padding-bottom calc(24px + env(safe-area-inset-bottom));
+    -webkit-tap-highlight-color transparent;
+
+.header
+    align-items center;
+    background rgba(14, 20, 22, .94);
+    border-bottom 1px solid $line;
+    display flex;
+    height calc(62px + env(safe-area-inset-top));
+    justify-content space-between;
+    padding calc(8px + env(safe-area-inset-top)) 16px 8px;
+    position sticky;
+    top 0;
+    z-index 20;
+
+.brand
+    align-items center;
+    display flex;
+    gap 10px;
+
+    > div
+        display flex;
+        flex-direction column;
+
+    strong
+        font-family Georgia, serif;
+        font-size 20px;
+        font-style italic;
+        line-height 20px;
+
+    span
+        color $muted;
+        font-size 9px;
+        letter-spacing .14em;
+        text-transform uppercase;
+
+.brandMark
+    align-items center;
+    background $accent;
+    border-radius 50%;
+    color #111;
+    display flex;
+    font-family Georgia, serif;
+    font-size 22px !important;
+    font-style italic;
+    height 38px;
+    justify-content center;
+    letter-spacing 0 !important;
+    width 38px;
+
+.iconButton
+    align-items center;
+    background transparent;
+    border 1px solid $line;
+    border-radius 50%;
+    color $ink;
+    display flex;
+    font-size 22px;
+    height 42px;
+    justify-content center;
+    padding 0;
+    width 42px;
+
+.statusButton
+    align-items center;
+    background $surface;
+    border 1px solid $line;
+    border-radius 24px;
+    color $ink;
+    display flex;
+    font-size 11px;
+    gap 7px;
+    min-height 40px;
+    padding 0 12px;
+    text-transform uppercase;
+
+.statusDot
+    background #718084;
+    border-radius 50%;
+    height 8px;
+    width 8px;
+
+    &.online
+        background $teal;
+        box-shadow 0 0 0 4px rgba(82, 196, 184, .14);
+
+.preview
+    background radial-gradient(circle at 50% 42%, rgba(239, 155, 80, .16), transparent 58%), linear-gradient(180deg, #141d20, #0e1416);
+    height clamp(220px, 36vh, 350px);
+    overflow hidden;
+    position relative;
+
+    > button
+        background transparent;
+        border 0;
+        height 100%;
+        padding 0;
+        touch-action none;
+        width 100%;
+
+        canvas
+            display block;
+            height 100%;
+            width 100%;
+
+        &[data-webgl-unavailable="true"]::after
+            color $muted;
+            content "3D preview unavailable";
+            left 50%;
+            position absolute;
+            top 50%;
+            transform translate(-50%, -50%);
+
+.dragHint
+    bottom 12px;
+    color $muted;
+    font-size 11px;
+    left 50%;
+    pointer-events none;
+    position absolute;
+    transform translateX(-50%);
+
+.main
+    margin 0 auto;
+    max-width 760px;
+    padding 26px 16px 40px;
+
+    h1
+        font-family Georgia, serif;
+        font-size clamp(30px, 9vw, 48px);
+        font-weight 400;
+        letter-spacing -.035em;
+        line-height 1;
+        margin 8px 0 24px;
+
+    h2
+        font-size 20px;
+        margin 5px 0 8px;
+
+.heroCopy
+    margin-bottom 26px;
+
+    p
+        color $muted;
+        font-size 15px;
+
+.eyebrow
+    color $accent;
+    display block;
+    font-size 10px;
+    font-weight 700;
+    letter-spacing .16em;
+    text-transform uppercase;
+
+.cardGrid
+    display grid;
+    gap 12px;
+    grid-template-columns 1fr;
+
+.choiceCard
+    align-items center;
+    background $surface;
+    border 1px solid $line;
+    border-radius 16px;
+    color $ink;
+    display grid;
+    grid-template-columns 1fr auto;
+    min-height 76px;
+    padding 16px 18px;
+    text-align left;
+    transition border-color .16s ease, transform .16s ease;
+
+    &:active
+        border-color $accent;
+        transform scale(.985);
+
+    > i
+        color $accent;
+        font-size 22px;
+        grid-column 2;
+        grid-row 1 / span 2;
+
+.choiceName
+    font-family Georgia, serif;
+    font-size 23px;
+
+.choiceDescription
+    color $muted;
+    font-size 12px;
+    margin-top 3px;
+
+.emptyState
+    align-items center;
+    border 1px dashed rgba(255, 255, 255, .18);
+    border-radius 16px;
+    color $muted;
+    display flex;
+    flex-direction column;
+    gap 8px;
+    padding 38px 20px;
+    text-align center;
+
+    i
+        font-size 28px;
+
+.toolpathCard, .setupCard
+    background $surface;
+    border 1px solid $line;
+    border-radius 18px;
+    margin-bottom 16px;
+    overflow hidden;
+    padding 18px;
+
+.toolpathHeader, .panelHeader
+    align-items flex-start;
+    display flex;
+    justify-content space-between;
+
+.fileSize
+    background rgba(255, 255, 255, .07);
+    border-radius 12px;
+    color $muted;
+    font-size 10px;
+    padding 5px 8px;
+
+.toolpathCanvas
+    background #0b1012;
+    border 1px solid $line;
+    border-radius 12px;
+    height 250px;
+    margin-top 15px;
+    overflow hidden;
+
+    canvas
+        height 100%;
+        width 100%;
+
+.fileMeta
+    align-items center;
+    color $muted;
+    display flex;
+    font-size 10px;
+    gap 10px;
+    justify-content space-between;
+    margin-top 10px;
+    min-width 0;
+
+    span
+        overflow hidden;
+        text-overflow ellipsis;
+        white-space nowrap;
+
+    code
+        color $teal;
+
+.setupCard
+    > p
+        color $muted;
+        line-height 1.5;
+
+.checkRow
+    align-items flex-start;
+    border-top 1px solid $line;
+    cursor pointer;
+    display flex;
+    font-size 14px;
+    gap 12px;
+    line-height 1.4;
+    margin 0;
+    min-height 58px;
+    padding 15px 0;
+
+    input
+        height 1px;
+        opacity 0;
+        position absolute;
+        width 1px;
+
+    input:checked + .customCheck
+        background $teal;
+        border-color $teal;
+        color #102022;
+
+.customCheck
+    align-items center;
+    border 2px solid #6b797c;
+    border-radius 6px;
+    color transparent;
+    display flex;
+    flex 0 0 24px;
+    height 24px;
+    justify-content center;
+    margin-top -2px;
+    width 24px;
+
+.warning, .error
+    background rgba(239, 155, 80, .1);
+    border 1px solid rgba(239, 155, 80, .35);
+    border-radius 14px;
+    color #ffd6b0;
+    display flex;
+    gap 12px;
+    margin-bottom 16px;
+    padding 15px;
+
+    > i
+        font-size 18px;
+        margin-top 2px;
+
+    p
+        color #c7b29f;
+        margin 4px 0 0;
+
+.error
+    background rgba(230, 95, 88, .1);
+    border-color rgba(230, 95, 88, .35);
+    color #ffb8b3;
+
+.armArea
+    padding 8px 0 28px;
+    text-align center;
+
+    p
+        color $muted;
+        font-size 12px;
+        margin-top 10px;
+
+.armButton, .startButton, .primaryButton, .pauseButton, .abortButton, .secondaryButton
+    border 0;
+    border-radius 14px;
+    font-size 15px;
+    font-weight 700;
+    min-height 54px;
+    padding 0 20px;
+    width 100%;
+
+    &:disabled
+        cursor not-allowed;
+        opacity .35;
+
+.armButton
+    background $surface-raised;
+    border 1px solid $line;
+    color $ink;
+    position relative;
+    overflow hidden;
+
+    &.arming::before
+        animation arm-fill 1.2s linear forwards;
+        background rgba(82, 196, 184, .25);
+        bottom 0;
+        content "";
+        left 0;
+        position absolute;
+        top 0;
+        width 0;
+
+.startButton, .primaryButton
+    background $teal;
+    color #0a1719;
+
+.pauseButton
+    background $accent;
+    color #1b120a;
+
+.abortButton
+    background transparent;
+    border 1px solid $danger;
+    color #ffaaa5;
+
+.secondaryButton
+    background $surface-raised;
+    border 1px solid $line;
+    color $ink;
+
+.textButton
+    background transparent;
+    border 0;
+    color $muted;
+    min-height 48px;
+    padding 0 16px;
+
+.machinePanel
+    background #11191c;
+    border 1px solid $line;
+    border-radius 24px 24px 0 0;
+    bottom 0;
+    box-shadow 0 -16px 60px rgba(0, 0, 0, .45);
+    left 0;
+    max-height calc(100vh - 60px);
+    overflow auto;
+    padding 20px 18px calc(24px + env(safe-area-inset-bottom));
+    position fixed;
+    right 0;
+    z-index 50;
+
+    h2
+        margin 5px 0 20px;
+
+    select
+        appearance none;
+        background $surface;
+        border 1px solid $line;
+        border-radius 12px;
+        color $ink;
+        font-size 16px;
+        height 52px;
+        margin 8px 0 12px;
+        padding 0 14px;
+        width 100%;
+
+.confirmationBackdrop
+    align-items flex-end;
+    background rgba(0, 0, 0, .7);
+    bottom 0;
+    display flex;
+    justify-content center;
+    left 0;
+    padding 16px;
+    position fixed;
+    right 0;
+    top 0;
+    z-index 80;
+
+.confirmation
+    background #172023;
+    border 1px solid $line;
+    border-radius 20px;
+    max-width 420px;
+    padding 22px;
+    width 100%;
+
+    h2
+        font-family Georgia, serif;
+        font-size 28px;
+        font-weight 400;
+        margin 8px 0;
+
+    p
+        color $muted;
+        line-height 1.5;
+        margin 0 0 20px;
+
+.confirmationActions
+    display grid;
+    gap 8px;
+    grid-template-columns 1fr 1.5fr;
+
+    .primaryButton, .abortButton
+        min-height 50px;
+
+.fieldLabel
+    color $muted;
+    display block;
+    font-size 11px;
+    letter-spacing .1em;
+    text-transform uppercase;
+
+.coordinates
+    display grid;
+    gap 8px;
+    grid-template-columns repeat(3, 1fr);
+    margin-bottom 14px;
+
+    span
+        background $surface;
+        border 1px solid $line;
+        border-radius 10px;
+        color $muted;
+        display flex;
+        flex-direction column;
+        font-size 10px;
+        padding 9px;
+
+    strong
+        color $ink;
+        font-family monospace;
+        font-size 14px;
+        margin-top 3px;
+
+.jogGrid
+    display grid;
+    gap 8px;
+    grid-template-columns repeat(3, 1fr);
+
+    button
+        background $surface-raised;
+        border 1px solid $line;
+        border-radius 12px;
+        color $ink;
+        font-size 16px;
+        font-weight 700;
+        min-height 58px;
+        touch-action none;
+        user-select none;
+
+        &:active
+            background $teal;
+            color #0a1719;
+
+    .jogStop
+        border-color rgba(230, 95, 88, .6);
+        color #ffaaa5;
+
+.helpText
+    color $muted;
+    font-size 11px;
+    text-align center;
+
+.buttonRow
+    display flex;
+    gap 8px;
+
+.utilityLinks
+    display flex;
+    flex-direction column;
+    gap 8px;
+    margin-top 28px;
+
+    a, button
+        background transparent;
+        border 0;
+        color $muted;
+        min-height 44px;
+        text-align center;
+
+.loading
+    color $muted;
+    padding 50px 0;
+    text-align center;
+
+.runScreen
+    align-items center;
+    background #0e1416;
+    color $ink;
+    display flex;
+    flex-direction column;
+    justify-content center;
+    min-height 100vh;
+    padding calc(30px + env(safe-area-inset-top)) 20px calc(30px + env(safe-area-inset-bottom));
+    text-align center;
+
+    h1
+        font-family Georgia, serif;
+        font-size 34px;
+        font-weight 400;
+        margin 8px 0;
+
+    > p
+        color $muted;
+
+.runRing
+    align-items center;
+    border-radius 50%;
+    display flex;
+    height 190px;
+    justify-content center;
+    margin-bottom 34px;
+    width 190px;
+
+    > div
+        align-items center;
+        background #11191c;
+        border-radius 50%;
+        display flex;
+        flex-direction column;
+        height 166px;
+        justify-content center;
+        width 166px;
+
+    strong
+        font-family Georgia, serif;
+        font-size 42px;
+        font-weight 400;
+
+    span
+        color $muted;
+        font-size 11px;
+        letter-spacing .13em;
+        text-transform uppercase;
+
+.runActions
+    display grid;
+    gap 12px;
+    margin-top 28px;
+    max-width 420px;
+    width 100%;
+
+@keyframes arm-fill
+    from
+        width 0;
+    to
+        width 100%;
+
+@media (min-width: 600px)
+    .cardGrid
+        grid-template-columns repeat(2, 1fr);
+
+    .machinePanel
+        border-radius 24px;
+        bottom 18px;
+        left auto;
+        right 18px;
+        width 410px;
+
+@media (orientation: landscape) and (max-height: 560px)
+    .preview
+        height 180px;
+
+    .runScreen
+        display grid;
+        gap 12px;
+        grid-template-columns 200px 1fr;
+        text-align left;
+
+    .runRing
+        grid-row 1 / span 5;
+        margin 0;

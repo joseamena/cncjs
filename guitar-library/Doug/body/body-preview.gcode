@@ -1,0 +1,16 @@
+(Guitar CNC demonstration preview — execution disabled in manifest)
+G21
+G90
+G0 Z5
+G0 X0 Y0
+G1 Z-1 F200
+G1 X120 Y0 F800
+G2 X140 Y20 I0 J20
+G1 X140 Y260
+G2 X120 Y280 I-20 J0
+G1 X0 Y280
+G2 X-20 Y260 I0 J-20
+G1 X-20 Y20
+G2 X0 Y0 I20 J0
+G0 Z5
+M2

@@ -5,6 +5,7 @@ import Header from './Header';
 import Sidebar from './Sidebar';
 import Workspace from './Workspace';
 import Settings from './Settings';
+import Guitar from './Guitar';
 import styles from './App.styl';
 
 class App extends PureComponent {
@@ -15,6 +16,7 @@ class App extends PureComponent {
     render() {
       const { location } = this.props;
       const accepted = ([
+        '/guitar',
         '/workspace',
         '/settings',
         '/settings/general',
@@ -31,7 +33,7 @@ class App extends PureComponent {
         return (
           <Redirect
             to={{
-              pathname: '/workspace',
+              pathname: '/guitar',
               state: {
                 from: location
               }
@@ -41,6 +43,10 @@ class App extends PureComponent {
       }
 
       trackPage(location.pathname);
+
+      if (location.pathname === '/guitar') {
+        return <Guitar {...this.props} />;
+      }
 
       return (
         <div>

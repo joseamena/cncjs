@@ -225,6 +225,14 @@ series([
   }
 
   renderPage();
+
+  if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js').catch(err => {
+        log.warn('Service worker registration failed:', err);
+      });
+    });
+  }
 }).catch(err => {
   log.error(err);
 });

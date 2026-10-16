@@ -25,5 +25,6 @@ i18next-scanner --config i18next-scanner.app.config.js \"src/app/**/*.{html,js,j
 mkdir -p output/cncjs/app
 mkdir -p output/cncjs/server
 
-cp -af src/app/{favicon.ico,i18n,images,assets} output/cncjs/app/
+cp -af src/app/{favicon.ico,manifest.webmanifest,service-worker.js,i18n,images,assets} output/cncjs/app/
 cp -af src/server/{i18n,views} output/cncjs/server/
+cp -af guitar-library output/cncjs/
