@@ -1,5 +1,9 @@
 {
     "watchDirectory": "",
+    "guitarLibrary": {
+        "directory": "",
+        "manifest": "guitar-library.json"
+    },
     "accessTokenLifetime": "30d",
     "allowRemoteAccess": false
 }

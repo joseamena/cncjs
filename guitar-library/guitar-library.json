@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "models": [
+    {
+      "id": "doug",
+      "name": "Doug",
+      "description": "Pilot guitar",
+      "accent": "#e96a3a",
+      "parts": [
+        {
+          "id": "body",
+          "name": "Body",
+          "configurations": [
+            {
+              "id": "hh",
+              "name": "Dual humbucker",
+              "pickupLayout": "HH",
+              "operations": [
+                {
+                  "id": "body-preview",
+                  "name": "Body toolpath preview",
+                  "description": "Safe demonstration file. Replace it with approved shop G-code before enabling execution.",
+                  "tool": "Demo only — no approved tool",
+                  "gcode": "Doug/body/body-preview.gcode",
+                  "workZero": "Confirm the approved job setup and work offset.",
+                  "checklist": [
+                    "The stock and spoilboard are secure",
+                    "Clamp positions are clear of the entire toolpath",
+                    "The installed tool matches the approved setup sheet",
+                    "Work zero has been established and verified"
+                  ],
+                  "executable": false
+                }
+              ]
+            },
+            {
+              "id": "sss",
+              "name": "Three single-coil",
+              "pickupLayout": "SSS",
+              "operations": []
+            }
+          ]
+        },
+        {
+          "id": "neck",
+          "name": "Neck",
+          "configurations": [
+            {
+              "id": "standard",
+              "name": "Standard neck",
+              "operations": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shredder",
+      "name": "Shredder",
+      "description": "Library setup pending",
+      "accent": "#8d63e8",
+      "parts": []
+    },
+    {
+      "id": "teleferica",
+      "name": "Teleferica",
+      "description": "Library setup pending",
+      "accent": "#32a8a0",
+      "parts": []
+    },
+    {
+      "id": "vaz",
+      "name": "Vaz",
+      "description": "Library setup pending",
+      "accent": "#e4ae45",
+      "parts": []
+    }
+  ]
+}

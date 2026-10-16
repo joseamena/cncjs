@@ -270,6 +270,10 @@ const appMain = () => {
     app.get(urljoin(settings.route, 'api/gcode/download'), api.gcode.download);
     app.post(urljoin(settings.route, 'api/gcode/download'), api.gcode.download); // Alias
 
+    // Guided guitar jobs
+    app.get(urljoin(settings.route, 'api/guitar/catalog'), api.guitar.catalog);
+    app.post(urljoin(settings.route, 'api/guitar/operation'), api.guitar.operation);
+
     // Controllers
     app.get(urljoin(settings.route, 'api/controllers'), api.controllers.get);
 
